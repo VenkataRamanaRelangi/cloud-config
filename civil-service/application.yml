@@ -1,13 +1,4 @@
-server:
-  port: 5050
-  
 spring:
-  application:
-    name: civil-service
-  config:
-    import: configserver:http://localhost:8888
-    
- 
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
     password: HR
