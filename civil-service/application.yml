@@ -1,0 +1,37 @@
+server:
+  port: 5050
+  
+spring:
+  application:
+    name: civil-service
+  config:
+    import: configserver:http://localhost:8888
+    
+ 
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    password: HR
+    url: jdbc:oracle:thin:@10.90.1.105:1521/DEV
+    username: HR
+  jpa:
+    properties:
+      hibernate:
+        format sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"
+        
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
